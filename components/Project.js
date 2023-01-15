@@ -1,4 +1,5 @@
-import Wok from '../components/Wok.js'
+import Wok from '../components/Wok.js';
+import Fade from 'react-reveal/Fade'
 import {Container,Row,Col} from 'react-bootstrap';
 const port="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp33xJDapsFxdGAQh6JyUzG8815wgaE3resw&usqp=CAU";
 const pizza="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395__340.jpg";
@@ -7,7 +8,7 @@ const img2="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVEhgUF
 const img1="https://blog.smarterservices.com/hubfs/What%20Students%20Should%20Expect.jpg";
 export default function Project(){
   return(
-    <div>
+    <Fade bottom>
       <Container>
         <div>
         <h6 className="display-6 my-5 text-center" style={{fontWeight:"bold",letterSpacing:"2px"}}> My Works</h6>
@@ -33,6 +34,6 @@ export default function Project(){
             </Col>
             </Row>
       </Container>
-      </div>
+      </Fade>
   )
 }
