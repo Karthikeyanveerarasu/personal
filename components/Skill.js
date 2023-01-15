@@ -1,11 +1,12 @@
 import {Container,Row,Col,ProgressBar} from 'react-bootstrap';
 import FadeIn from 'react-fade-in';
+import Fade from 'react-reveal/Fade'
 import './AppStyle.css';
 const img="https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
 export default function Skill() {
   return (
     <section id="#skill">
-    <FadeIn>
+    <Fade bottom>
     <Container>
       <Row  className="justify-content-md-center my-4">
         <Col  xs={0} lg={6} className="my-3">
@@ -95,7 +96,7 @@ export default function Skill() {
           </Col>
         </Row>
       </Container>
-      </FadeIn>
+      </Fade>
       </section>
   );
 }
