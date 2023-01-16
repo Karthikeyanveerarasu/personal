@@ -1,0 +1,22 @@
+.btn-primary {
+  font-family: Raleway-SemiBold;
+  font-size: 1.2rem;
+  color: rgba(58, 133, 191, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(58, 133, 191, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-primary:hover {
+  color: #FFF;
+  font-weight: bold;
+  background: rgba(58, 133, 191, 0.75);
+  border: 2px solid rgba(58, 133, 191, 0.75);
+}
+h5{
+  letter-spacing:2px;
+  font-size:1.3rem;
+}
