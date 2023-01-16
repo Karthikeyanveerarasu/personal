@@ -3,7 +3,7 @@ import Bounce from 'react-reveal/Bounce';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import './Contact.css'
-const logo="https://images.pexels.com/photos/1136575/pexels-photo-1136575.jpeg?auto=compress&cs=tinysrgb&w=600";
+const logo="https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=600";
  const Contact =()=>{
   return(
     <div className="my-4">
@@ -38,6 +38,10 @@ const logo="https://images.pexels.com/photos/1136575/pexels-photo-1136575.jpeg?a
       
            </Col>
            <Col md={6}>
+             <div class="my-5">
+                <img src={logo} className="my-4" alt="information"/>
+             </div>
+            
                        
 
            </Col>
