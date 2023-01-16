@@ -1,3 +1,4 @@
+import react from 'react'; 
 import Bounce from 'react-reveal/Bounce'
 import { Provider } from '@lyket/react'
 import { LikeButton } from '@lyket/react'
