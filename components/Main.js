@@ -35,9 +35,9 @@ export default function Main(){
       </span>
           
         <div className="container text-center my-3">
-          <button className="btn btn-info mx-4">Hire me</button>
-          <button className="btn btn-success"> Download CV</button>
-        </div>
+       <a href={'https://www.linkedin.com/in/karthikeyan-v-v-26b87b244/'} target="blank">   <button className="btn btn-info mx-4">Hire me</button></a>
+       <a href={''} download>   <button className="btn btn-success"> Download CV</button>
+       </a> </div>
       </div>
       </div>
       
