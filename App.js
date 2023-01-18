@@ -1,15 +1,20 @@
 
-import Main from './components/Main'
-import Skill from './components/Skill'
-import Project from './components/Project'
-import Wok from './components/Wok'
+import Project from "./Components/Project";
+import Skill from "./Components/Skill";
+import Contact from './Components/Contact'
+import Like from "./Components/Like";
+import Footer from "./Components/Footer";
+import AppBar from './Components/AppBar';
+
 export default function App() {
   return (
-    <div className="App">
-      <Main />
-      <Skill />
-      <Project />
-      
-      </div>
+    <div>
+      <AppBar />   
+       <Skill />
+       <Project />
+       <Contact />
+       <Like />
+       <Footer /> 
+    </div>
   );
 }
