@@ -5,6 +5,9 @@
   overflow: hidden;
   cursor: pointer;
 }
+.pro{
+ text-align: justify;
+}
 .img{
   transform:scale(1);
   transition: transform 0.5s ease;
@@ -15,14 +18,15 @@
 .img:hover{
   transform: scale(1.1);
 }
-a{
+.anchor{
   text-decoration: none;
-  color:blue;
   font-size:1.1rem !important;
+  color:grey!important;
+  
 }
-a:hover{
+.anchor:hover{
   color: red !important;
   font-size:1.2rem !important;
   font-weight: bold;
-  letter-spacing: 1px;
+  
 }
