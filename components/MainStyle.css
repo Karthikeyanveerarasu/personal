@@ -3,15 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+.header-bg{
+  background-color:#222;
+  transition: all 0.3s ease-in-out;
+}
 .main{
   height: 100vh;
   width: 100%;
-
 }
-video {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.nav{
+  font-size:1.2rem;
+font-weight: 10px;
+letter-spacing: 3px;
+  gap:30px;
+  font-family:'Times New Roman', Times, serif;
+}
+nav a{
+  color:white !important;
+  
+}
+nav a:hover{
+  color: red !important;
+ transform: scale(1.02);
 }
 .content{
   position: absolute;
