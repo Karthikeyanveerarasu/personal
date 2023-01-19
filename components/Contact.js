@@ -8,10 +8,15 @@ import { useState } from 'react';
  const Contact =()=>{
    const[email,SetEmail]=useState("")
    const[name,SetName]=useState("")
+   const[comment,SetComment]=useState("");
+
    const myfunc=()=>{
      const Vname=/[0-9]/;
      const Vemail=/\b[0-9]/;
-     if(email.includes("@")){
+     if(Vname.test(name)){
+      window.alert("Names Should Not Contain Numbers");
+    }
+    else if(email.includes("@")){
        var arr=email.split("@");
        const sec=arr[1];
        const fir=arr[0];
@@ -20,16 +25,32 @@ import { useState } from 'react';
       }
       else if(sec!=="gmail.com"){
          alert("Opps Please enter a Email ends with gmail.com")
-       }
-       
+       }  
      }
-     else if(Vname.test(name)){
-       window.alert("Names Should Not Contain Numbers");
+     else if(email===""){
+       alert("please enter your email")
      }
+     else if(name===""){
+       alert("Please enter your name");
+     }
+     else if(name.length<5){
+       alert("characters must be greater than 5");
+     }
+     else if(comment===""){
+       alert("Comment Box cannot be empty");
+     }
+     else{
+       alert("Please check your email address");
+     }
+
+   
    }
    const UpdateEmailValue =(e)=>{
       SetEmail(e.target.value);    
    };
+   const updateComment=(e)=>{
+     SetComment(e.target.value);
+   }
    const UpdateNameValue =(e)=>{
       SetName(e.target.value);    
    };
@@ -59,6 +80,8 @@ import { useState } from 'react';
         <Form.Control
           as="textarea"
           placeholder="Leave a comment here"
+          value={comment}
+          onChange={updateComment}
           style={{ height: '100px' }}
         />
       </FloatingLabel>
