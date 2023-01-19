@@ -3,13 +3,45 @@ import Fade from 'react-reveal/Fade';
 import { FloatingLabel } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import './Contact.css'
+import { useState } from 'react';
 
  const Contact =()=>{
+   const[email,SetEmail]=useState("")
+   const[name,SetName]=useState("")
+   const myfunc=()=>{
+     const Vname=/[0-9]/;
+     const Vemail=/\b[0-9]/;
+     if(email.includes("@")){
+       var arr=email.split("@");
+       const sec=arr[1];
+       const fir=arr[0];
+      if(Vemail.test(fir)){
+        alert("Opps Email Cannot Starts With Number");
+      }
+      else if(sec!=="gmail.com"){
+         alert("Opps Please enter a Email ends with gmail.com")
+       }
+       
+     }
+     else if(Vname.test(name)){
+       window.alert("Names Should Not Contain Numbers");
+     }
+   }
+   const UpdateEmailValue =(e)=>{
+      SetEmail(e.target.value);    
+   };
+   const UpdateNameValue =(e)=>{
+      SetName(e.target.value);    
+   };
   return(
-    <div className="my-4">
+    <section id="contact">
       <Container>
+      <div>
+        <h6 className="display-6 my-5 text-center" style={{fontWeight:"bold",letterSpacing:"2px"}}>Let's Connect</h6>
+
+        </div>
         <Row>
-           <Col md={6}>
+           <Col md={6} >
            <div className="text-center my-5" >
                 <h5 className="display-6"> Send us a Message</h5>     
              </div>
@@ -18,10 +50,10 @@ import './Contact.css'
         label="Email"
         className="mb-3"
       >
-        <Form.Control type="email" placeholder="name@example.com" />
+        <Form.Control type="email" placeholder="name@example.com" value={email} onChange={UpdateEmailValue}/>
       </FloatingLabel>
       <FloatingLabel controlId="floatingName" label="Name">
-        <Form.Control type="Name" placeholder="name"/>
+        <Form.Control type="Name" placeholder="name" value={name} onChange={UpdateNameValue}/>
       </FloatingLabel>
       <FloatingLabel controlId="floatingTextarea2" label="Comments" className="mt-3">
         <Form.Control
@@ -31,9 +63,7 @@ import './Contact.css'
         />
       </FloatingLabel>
       <div className="text-center mt-5">
-<button className="btn btn-primary">Send Email <span style={{fontSize:"1.2rem",fontWeight:"bold"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-</svg></span></button>
+<button class="button" onClick={myfunc}>Send Email</button>
       </div>
       
            </Col>
@@ -70,8 +100,9 @@ import './Contact.css'
            </Col>
         </Row>
       </Container>
+      </section>
 
-    </div>
+  
   );
 }
 export default Contact;
