@@ -1,4 +1,8 @@
-a{
+ul li a{
   text-decoration: none !important;
-  color: grey;
+  color: grey !important;
+}
+ul li a:hover{
+  color:red !important;
+  
 }
