@@ -4,47 +4,79 @@ import { FloatingLabel } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import './Contact.css'
 import { useState } from 'react';
-
+import axios from 'axios'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
  const Contact =()=>{
+  const [smShow, setSmShow] = useState(false);
    const[email,SetEmail]=useState("")
    const[name,SetName]=useState("")
    const[comment,SetComment]=useState("");
 
-   const myfunc=()=>{
+   const myfunc=(e)=>{
+     
+     e.preventDefault();
      const Vname=/[0-9]/;
      const Vemail=/\b[0-9]/;
+     let a=0;
      if(Vname.test(name)){
+      a=1;
       window.alert("Names Should Not Contain Numbers");
-    }
-    else if(email.includes("@")){
-       var arr=email.split("@");
-       const sec=arr[1];
-       const fir=arr[0];
-      if(Vemail.test(fir)){
-        alert("Opps Email Cannot Starts With Number");
-      }
-      else if(sec!=="gmail.com"){
-         alert("Opps Please enter a Email ends with gmail.com")
-       }  
-     }
+    } 
      else if(email===""){
+      a=1;
+     
        alert("please enter your email")
      }
      else if(name===""){
+      a=1;
        alert("Please enter your name");
      }
      else if(name.length<5){
+      a=1;
        alert("characters must be greater than 5");
      }
      else if(comment===""){
+      a=1;
+      
        alert("Comment Box cannot be empty");
      }
-     else{
+     
+     else if(!email.includes("@")){
+       a=1;
+       
        alert("Please check your email address");
      }
-
-   
-   }
+    
+     else if(email.includes("@")){
+      var arr=email.split("@");
+      const sec=arr[1];
+      const fir=arr[0];
+     if(Vemail.test(fir)){
+       a=1;
+       alert("Opps Email Cannot Starts With Number");
+     }
+     else if(sec!=="gmail.com"){
+       a=1;
+      alert("Opps Please enter a Email ends with gmail.com")
+    } 
+    }
+     if(a===0){
+      setSmShow(true);
+       const data={
+         Email:email,
+         Name:name,
+         Comment:comment
+       }
+       axios.post('https://sheet.best/api/sheets/7860b615-821b-45d9-ab26-f0fb34b43b10',data).then((response)=>{
+         
+         SetEmail("");
+         SetName("");
+         SetComment("");
+       })
+     }
+ 
+  }
    const UpdateEmailValue =(e)=>{
       SetEmail(e.target.value);    
    };
@@ -56,6 +88,19 @@ import { useState } from 'react';
    };
   return(
     <section id="contact">
+       <Modal
+        size="sm"
+        show={smShow}
+        onHide={() => setSmShow(false)}
+      >
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>
+          <div class="text-center text-success">
+            Your Message Sent Successfully 
+          </div>
+        </Modal.Body>
+      </Modal>
       <Container>
       <div>
         <h6 className="display-6 my-5 text-center" style={{fontWeight:"bold",letterSpacing:"2px"}}>Let's Connect</h6>
@@ -71,16 +116,17 @@ import { useState } from 'react';
         label="Email"
         className="mb-3"
       >
-        <Form.Control type="email" placeholder="name@example.com" value={email} onChange={UpdateEmailValue}/>
+        <Form.Control type="email" placeholder="name@example.com" value={email} onChange={UpdateEmailValue} required/>
       </FloatingLabel>
       <FloatingLabel controlId="floatingName" label="Name">
-        <Form.Control type="Name" placeholder="name" value={name} onChange={UpdateNameValue}/>
+        <Form.Control type="Name" placeholder="name" value={name} onChange={UpdateNameValue}  required/>
       </FloatingLabel>
       <FloatingLabel controlId="floatingTextarea2" label="Comments" className="mt-3">
         <Form.Control
           as="textarea"
           placeholder="Leave a comment here"
           value={comment}
+          required
           onChange={updateComment}
           style={{ height: '100px' }}
         />
