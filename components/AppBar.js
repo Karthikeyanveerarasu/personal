@@ -7,40 +7,38 @@ import Typewriter from "typewriter-effect";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
-import {useState} from 'react'
+import { useState } from "react";
 import RubberBand from "react-reveal/RubberBand";
 export default function AppBar() {
-  const[ Color ,SetColor]=useState(false);
-  const changeColor=()=>{
-     if(window.scrollY >=100){
-       SetColor(true);
-     }else{
-       SetColor(false);
-     }
-  }
-  window.addEventListener('scroll',changeColor)
+  const [Color, SetColor] = useState(false);
+  const changeColor = () => {
+    if (window.scrollY >= 100) {
+      SetColor(true);
+    } else {
+      SetColor(false);
+    }
+  };
+  window.addEventListener("scroll", changeColor);
   return (
     <div>
       <Navbar
-        
         expand="lg"
         fixed="top"
-        className={Color ? 'header-bg' :'header'}
+        className={Color ? "header-bg" : "header"}
         style={{
           width: "95%",
           margin: "auto",
           borderRadius: "10px",
-          marginTop: "10px",      
+          marginTop: "10px"
         }}
       >
         <Container>
           <Navbar.Brand href="#home">
             <div class="img-fluid mx-2">
-              <img src={lo} alt="Logo" width={40}/>
-            
+              <img src={lo} alt="Logo" width={40} />
             </div>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" >
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
           <Navbar.Collapse
@@ -59,10 +57,10 @@ export default function AppBar() {
       </Navbar>
       <section id="home">
         <Parallax bgImage={photo} strength={500}>
-        <div className="overlay"></div>
           <div className="overlay"></div>
           <div className="overlay"></div>
-          
+          <div className="overlay"></div>
+
           <div style={{ height: "100vh" }}>
             <div className="content">
               <RubberBand count={5}>
@@ -77,7 +75,7 @@ export default function AppBar() {
                   fontSize: "1.8rem",
                   marginBottom: "20px",
                   fontWeight: "bold",
-                  letterSpacing: "2px"
+                  letterSpacing: "3px"
                 }}
               >
                 <Typewriter
@@ -106,7 +104,11 @@ export default function AppBar() {
                   {" "}
                   <button className="btn btn-info mx-4">Hire me</button>
                 </a>
-                <a href={"./assets/Resume.pdf"} download>
+                <a
+                  style={{ textDecoration: "none" }}
+                  href={"./assets/Resume.pdf"}
+                  download
+                >
                   {" "}
                   <button className="btn btn-success"> Download CV</button>
                 </a>{" "}
