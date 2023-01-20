@@ -9,6 +9,7 @@ import { Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { useState } from "react";
 import RubberBand from "react-reveal/RubberBand";
+import resume from "../assets/down.pdf";
 export default function AppBar() {
   const [Color, SetColor] = useState(false);
   const changeColor = () => {
@@ -28,7 +29,7 @@ export default function AppBar() {
         style={{
           width: "95%",
           margin: "auto",
-          borderRadius: "10px",
+          borderRadius: "30px",
           marginTop: "10px"
         }}
       >
@@ -106,8 +107,9 @@ export default function AppBar() {
                 </a>
                 <a
                   style={{ textDecoration: "none" }}
-                  href={"./assets/Resume.pdf"}
-                  download
+                  href={resume}
+                  download="Resume"
+                  target="blank"
                 >
                   {" "}
                   <button className="btn btn-success"> Download CV</button>
